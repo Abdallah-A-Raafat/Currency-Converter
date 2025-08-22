@@ -134,11 +134,11 @@ body {
 }
 
 /* small helpers */
-.card-surface { background: linear-gradient(135deg,var(--card-start),var(--card-mid),var(--card-end)); }
-.glass { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(10px); }
+.card-surface { background: linear-gradient(135deg,var(--card-start),var(--card-mid),var(--card-end)); padding: 30px; border-radius: 10px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);  }
+.glass { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(10px); margin: 10px; margin-bottom: 15px;}
 
 /* focus ring utility for inputs/selects */
-.focus-ring { outline: none; box-shadow: 0 0 0 4px rgba(34,211,238,0.25); border-color: rgba(255,255,255,0.35); }
+.focus-ring { outline: none; box-shadow: 0 0 0 4px rgba(34,211,238,0.25); border-color: rgba(255,255,255,0.35); margin-left: 20px; margin-bottom: 10px; }
 
 /* glow text helper */
 .neon-text { text-shadow: 0 2px 16px rgba(34,211,238,0.35); }
@@ -148,7 +148,7 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 2 rem;
 }
 
 button {
