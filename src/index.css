@@ -12,21 +12,139 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Disable scroll and ensure full viewport height */
+html, body { 
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+/* Design tokens - DARK THEME */
+.theme-dark {
+  --color-bg-1: #0f172a; /* slate-900 */
+  --color-bg-2: #111827; /* gray-900 */
+  --card-start: #0ea5e9; /* sky-500 */
+  --card-mid: #8b5cf6; /* violet-500 */
+  --card-end: #06b6d4; /* cyan-500 */
+  --accent-1: #22d3ee; /* cyan-400 */
+  --accent-2: #10b981; /* emerald-500 */
+  --muted: rgba(255,255,255,0.12);
+}
+
+/* Design tokens - LIGHT THEME */
+.theme-light {
+  --color-bg-1: #ffffff; /* white page */
+  --color-bg-2: #ffffff;
+  /* Purple card like screenshot */
+  --card-start: #5b0a7a; /* deep purple */
+  --card-mid: #6d0d93; 
+  --card-end: #4a0a62; 
+  --accent-1: #e5e4b8; /* pale gold button */
+  --accent-2: #a98f2e; /* darker gold gradient start */
+  --muted: rgba(0,0,0,0.08);
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #38bdf8;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #22d3ee;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #4B0055;
 }
+
+/* Page background per theme */
+.theme-dark {
+  background: radial-gradient(1200px 800px at 10% 10%, rgba(56,189,248,0.08), transparent 60%),
+              radial-gradient(1000px 700px at 90% 20%, rgba(168,85,247,0.08), transparent 60%),
+              linear-gradient(180deg, var(--color-bg-1), var(--color-bg-2));
+}
+.theme-light {
+  background: #ffffff;
+}
+
+/* layout helpers */
+.full-center { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.fixed-top-right { position: fixed; top: 16px; right: 16px; z-index: 9999; }
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0.7;
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px rgba(34,211,238,0.0));
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 16px rgba(34,211,238,0.45));
+  }
+}
+
+.animation-delay-1000 {
+  animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Reusable button styles (fallbacks when Tailwind utilities aren't enough) */
+.btn-primary {
+  background-image: linear-gradient(90deg,var(--accent-2),var(--accent-1));
+  color: #1f2937; /* better contrast in light gold */
+  padding: 0.9rem 1.1rem;
+  border-radius: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(34,211,238,0.18), 0 2px 10px rgba(16,185,129,0.18) inset;
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+}
+.btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 18px 36px rgba(34,211,238,0.28), 0 0 0 4px rgba(34,211,238,0.12) inset; }
+
+.btn-ghost {
+  background: rgba(255,255,255,0.04);
+  color: white;
+  padding: 0.6rem 0.9rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  backdrop-filter: blur(8px);
+}
+
+/* small helpers */
+.card-surface { background: linear-gradient(135deg,var(--card-start),var(--card-mid),var(--card-end)); }
+.glass { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); backdrop-filter: blur(10px); }
+
+/* focus ring utility for inputs/selects */
+.focus-ring { outline: none; box-shadow: 0 0 0 4px rgba(34,211,238,0.25); border-color: rgba(255,255,255,0.35); }
+
+/* glow text helper */
+.neon-text { text-shadow: 0 2px 16px rgba(34,211,238,0.35); }
+
+/* fixed pixel gap helper */
+.gap-20px { gap: 20px; }
 
 h1 {
   font-size: 3.2em;
@@ -40,12 +158,12 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #0b1220;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #22d3ee;
 }
 button:focus,
 button:focus-visible {
@@ -58,7 +176,7 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #22d3ee;
   }
   button {
     background-color: #f9f9f9;
