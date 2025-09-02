@@ -139,7 +139,7 @@ This project is open source and available under the [MIT License](LICENSE).
 **Abdallah A. Raafat**
 
 - GitHub: [@Abdallah-A-Raafat](https://github.com/Abdallah-A-Raafat)
-- Project: [Currency Converter](https://github.com/Abdallah-A-Raafat/Currency-Converter)
+- Project: [Currency Converter](https://currency-converter-psi-green.vercel.app/)
 
 ---
 
